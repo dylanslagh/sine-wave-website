@@ -15,18 +15,21 @@
   <p id="current-value"></p>
 
   <script>
-    function getCurrentValue() {
-      const now = new Date();
-      const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-      const period = 1; // Period in days
-      const amplitude = 100;
-      const elapsedDays = (now - start) / (1000 * 60 * 60 * 24);
+function getCurrentValue() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const period = 1; // Period in days
+  const amplitude = 100;
+  const elapsedDays = (now - start) / (1000 * 60 * 60 * 24);
 
-      const value = amplitude * (1 + Math.sin(2 * Math.PI * elapsedDays / period)) / 2;
-      return Math.round(value * 100) + "%";
-    }
+  let value = amplitude * (1 + Math.sin(2 * Math.PI * elapsedDays / period)) / 2;
+  value = Math.max(Math.min(value, amplitude), 0); // Limit the value to be between 0 and amplitude
+  
+  return value.toFixed(2) + "%";
+}
 
-    document.getElementById("current-value").innerText = "Current value: " + getCurrentValue();
+document.getElementById("current-value").innerText = "Current value: " + getCurrentValue();
+
   </script>
 </body>
 </html>
