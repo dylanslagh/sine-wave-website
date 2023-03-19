@@ -22,7 +22,7 @@ function getCurrentValue() {
   const amplitude = 100;
   const elapsedDays = (now - start) / (1000 * 60 * 60 * 24);
 
-  let value = amplitude * (1 + Math.sin(2 * Math.PI * elapsedDays / period)) / 2;
+  let value = amplitude * (1 + Math.sin(Math.PI * elapsedDays / period)) / 2;
   value = Math.max(Math.min(value, amplitude), 0); // Limit the value to be between 0 and amplitude
   
   return value.toFixed(2) + "%";
