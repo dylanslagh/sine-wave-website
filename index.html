@@ -23,7 +23,7 @@
       const elapsedDays = (now - start) / (1000 * 60 * 60 * 24);
       const radians = 2 * Math.PI * elapsedDays / period;
 
-      return amplitude * (1 + Math.sin(radians)) / 2;
+      return amplitude * (Math.sin(radians) + 1) / 2;
     }
 
     document.getElementById("current-value").innerText = "Current value: " + getCurrentValue().toFixed(2);
