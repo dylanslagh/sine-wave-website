@@ -22,7 +22,11 @@
       const amplitude = 100;
       const elapsedDays = (now - start) / (1000 * 60 * 60 * 24);
 
-      return amplitude * (1 + Math.sin(2 * Math.PI * elapsedDays / period)) / 2;
+  return amplitude * (1 + Math.sin(2 * Math.PI * elapsedDays / period)) / 2;
+}
+
+document.getElementById("current-value").innerText = "Current value: " + getCurrentValue().toFixed(2);
+
     }
 
     document.getElementById("current-value").innerText = "Current value: " + getCurrentValue().toFixed(2);
