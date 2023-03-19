@@ -13,22 +13,20 @@
   <h1>Sine Wave</h1>
   <img src="sine_wave.png" alt="Sine Wave">
   <p id="current-value"></p>
-<script>
-  function getCurrentValue() {
-    const now = new Date();
-    const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const period = 1; // Period in days
-    const amplitude = 100;
-    const elapsedDays = (now - start) / (1000 * 60 * 60 * 24);
 
-    const value = amplitude * (1 + Math.sin(2 * Math.PI * elapsedDays / period)) / 2;
-    const percentage = (value * 100).toFixed(2);
+  <script>
+    function getCurrentValue() {
+      const now = new Date();
+      const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const period = 1; // Period in days
+      const amplitude = 100;
+      const elapsedDays = (now - start) / (1000 * 60 * 60 * 24);
 
-    return percentage + "%";
-  }
+      const value = amplitude * (1 + Math.sin(2 * Math.PI * elapsedDays / period)) / 2;
+      return Math.round(value * 100) + "%";
+    }
 
-  document.getElementById("current-value").innerText = "Current value: " + getCurrentValue();
-</script>
-
+    document.getElementById("current-value").innerText = "Current value: " + getCurrentValue();
+  </script>
 </body>
 </html>
